@@ -5,16 +5,17 @@ const timeZone = 'Etc/GMT-1';
 
 export class BatchService{
 
-    constructor(bot, procedure){
+    constructor(bot, botservice, procedure){
         this.bot = bot
+        this.botservice = botservice
         this.procedure = procedure
         this.batch()
     }
 
     batch(){
         const job = new CronJob(
-            // '00 30 12 * * *',
-            '* * * * * *',
+            '00 30 12 * * *',
+            //'* * * * * *',
             () => {
                 this.procedure()
             },
