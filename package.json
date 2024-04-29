@@ -1,0 +1,36 @@
+{
+  "name": "uselessfactsbot",
+  "version": "1.0.0",
+  "description": "useless facts telegram bot",
+  "main": "bot.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M4NT3S/useless-facts-bot.git"
+  },
+  "keywords": [
+    "useless",
+    "bot",
+    "telegram",
+    "daily"
+  ],
+  "author": "M4NT3S",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/M4NT3S/useless-facts-bot/issues"
+  },
+  "homepage": "https://github.com/M4NT3S/useless-facts-bot#readme",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "cron": "^3.1.7",
+    "dotenv": "^16.4.5",
+    "node-telegram-bot-api": "^0.65.1",
+    "pino": "^9.0.0"
+  },
+  "devDependencies": {
+    "pino-pretty": "^11.0.0"
+  }
+}
