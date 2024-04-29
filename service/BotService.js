@@ -3,8 +3,9 @@ import axios from 'axios';
 const log = pino();
 
 export class BotService{
-    constructor(repository){
+    constructor(repository, bot){
         this.repository = repository;
+        this.bot = bot;
         log.info(repository)
         log.info('The repisory has started')
         log.info('This is its value')
@@ -66,6 +67,9 @@ source: ${response.data.source_url}`;
     async sendFactsToSubscribers(){
         log.info('Sending facts to subscribers....')
         const subscribers = await this.repository.retrieveSubscribers();
-        log.info(subscribers)
+        subscribers.forEach(async subscriber => {
+            const uselessFact = await this.retrieveUselessFact();
+            this.bot.sendMessage(subscriber.id, uselessFact);
+        })
     }
 }
