@@ -6,10 +6,6 @@ export class BotService{
     constructor(repository, bot){
         this.repository = repository;
         this.bot = bot;
-        log.info(repository)
-        log.info('The repisory has started')
-        log.info('This is its value')
-        log.info(this.repository)
     }
 
     async newUser(userId){
@@ -17,8 +13,6 @@ export class BotService{
             const userExist = await this.repository.userExists(userId)
             if(!userExist){
                 log.info('inserting the new user...')
-                log.info('This is the repository')
-                log.info(this.repository)
                 this.repository.insertSubscriber(userId)
                 const fact = await this.retrieveUselessFact()
                 log.info(`A new user with userId ${userId} was inserted`)
@@ -26,6 +20,7 @@ export class BotService{
                 `Congratulations in your new subscription!
 
 Enjoy a welcome useless fact:
+
 ${fact}`;
                 return message;
             }else{
